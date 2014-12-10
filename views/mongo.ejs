@@ -4,6 +4,8 @@
 		<title><%= title %></title>
 	</head>
 	<body>
-		<%= JSON.stringify((obj[obj.length - 1]).status) %>
+		<div id="full"> <%= JSON.stringify((obj[obj.length - 1])) %></div>
+		<br/>
+		<div id="status"><%= JSON.stringify((obj[obj.length - 1]).status) %></div>
 	</body>
 </html>
