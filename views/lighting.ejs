@@ -28,6 +28,19 @@
         $("#toggle").fadeOut("slow");
       });
     });
+
+    function clickCounter() {
+    if(typeof(Storage) !== "undefined") {
+        if (localStorage.clickcount) {
+            localStorage.clickcount = Number(localStorage.clickcount)+1;
+        } else {
+            localStorage.clickcount = 1;
+        }
+        document.getElementById("result").innerHTML = "The lights have been toggled " + localStorage.clickcount + " time(s).";
+    } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+    }
+}
     
   </script>
 </head>
@@ -48,14 +61,15 @@
            <form name="on" action="/log/lightOn" method="GET">
            <input id="status" type="hidden" name="status" value="1">
             <input id="dateOn" type="hidden" name="datetime" value=""><br>
-           <button type="submit">Turn Lights On</button>
+           <button onclick="clickCounter()" type="submit">Turn Lights On</button>
            </form>
 
            <form name="off" action="/log/lightOff" method="GET">
            <input id="status" type="hidden" name="status" value="0">
             <input id="dateOff" type="hidden" name="datetime" value=""><br>
-           <button type="submit">Turn Lights Off</button>
+           <button onclick="clickCounter()" type="submit">Turn Lights Off</button>
            </form>
+           <div id="result"></div>
         </div>
         
       </div>
