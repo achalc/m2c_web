@@ -22,7 +22,6 @@ self.app.get('/lighting', dbRoutes.light);
 self.app.get('/log', dbRoutes.log);
 self.app.get('/send', dbRoutes.send);
 self.app.get('/:collection/:operation', dbRoutes.mongo);
-self.app.get('/test', dbRoutes.test);
 
 // Handle static files
 self.app.use(express.static(__dirname + '/public'));
