@@ -36,7 +36,7 @@
         } else {
             localStorage.clickcount = 1;
         }
-        document.getElementById("result").innerHTML = "The lights have been toggled " + localStorage.clickcount + " time(s).";
+        document.getElementById("result").innerHTML = "This button has been clicked " + localStorage.clickcount + " time(s).";
     } else {
         document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
     }
@@ -61,27 +61,28 @@
            <form name="on" action="/log/lightOn" method="GET">
            <input id="status" type="hidden" name="status" value="1">
             <input id="dateOn" type="hidden" name="datetime" value=""><br>
-           <button onclick="clickCounter()" type="submit">Turn Lights On</button>
+           <button type="submit">Turn Lights On</button>
            </form>
 
            <form name="off" action="/log/lightOff" method="GET">
            <input id="status" type="hidden" name="status" value="0">
             <input id="dateOff" type="hidden" name="datetime" value=""><br>
-           <button onclick="clickCounter()" type="submit">Turn Lights Off</button>
+           <button type="submit">Turn Lights Off</button>
            </form>
-           <div id="result"></div>
         </div>
         
       </div>
       <div class="col-sm-4">
         
         <div class="well">
-          <h3> Sunrise & Sunset</h3>
+          <h3> Sunrise & Sunset Times</h3>
           <form name="time" id="time">
-            <input type="button" value="Find Times">
+            <input onclick="clickCounter()" type="button" value="Find Times">
           </form>
           <br/>
           <p id="timeResp"></p>
+          <br/>
+          <div id="result"></div>
         </div>
 
       </div>
