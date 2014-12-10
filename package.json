@@ -1,5 +1,5 @@
 {
-  "name": "m2c final project",
+  "name": "OpenShift-Sample-App",
   "version": "1.0.0",
   "description": "OpenShift Sample Application",
   "keywords": [
@@ -33,5 +33,6 @@
   "devDependencies": {},
   "bundleDependencies": [],
 
+  // "private": true,
   "main": "app.js"
 }
