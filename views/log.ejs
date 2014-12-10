@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= title %></title>
+	</head>
+
+	<body>
+	<h1> Logging Model </h1>
+
+		<h3>Create</h3>
+		
+		<form action="/log/insert" method="GET">
+		Event: <input type="text" name="event"><br>
+		Time: <input type="text" name="datetime"><br>
+		Tag: <input type="text" name="tag>"><br>
+		<input type="submit" /> 
+		</form>
+
+		<h3>Find</h3>
+		<h6>Search for a log by its unique tag</h6>
+		<form action="/log/find" method="GET">
+		Tag: <input type="text" name="tag>"><br>
+		<input type="submit" /> 
+		</form>
+
+		<h3>Update</h3>
+		<form action="/log/update?find="$tag"/update" method="GET">
+		Tag: <input type="text" name="tag"><br>
+		Event: <input type="text" name="event"><br>
+		Time: <input type="text" name="datetime"><br>
+		<input type="submit" /> 
+	</body>
+</html>
+
+

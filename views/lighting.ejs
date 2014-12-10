@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include /partials/head %>
+  <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'>
+  </script>
+  <script type="text/javascript">
+    
+    $(function() {
+      // body...
+        $('form[name="time"] input').click(function() {
+          var timesURL = "http://api.geonames.org/timezoneJSON?lat=40.4410630&lng=-79.9423120&username=achannar";
+          $.getJSON(timesURL, function(data) {
+            var sunrise = data.sunrise;
+            var sunset = data.sunset;
+            var displayText = "Sunrise: " + sunrise + "<br/> Sunset: " + sunset;
+            $("#timeResp").html(displayText);
+          }); //getJSON
+        }); // click 
+        var currentTime = new Date(); 
+        document.getElementById('dateOn').value = currentTime;
+        document.getElementById('dateOff').value = currentTime;
+    }); //onReady
+
+    $(function() {
+      $('button').click(function() {
+        $("#toggle").fadeOut("slow");
+      });
+    });
+    
+  </script>
+</head>
+<body class="container">
+
+  <header>
+    <% include /partials/header %>
+  </header>
+
+  <main>
+
+    <div class="row">
+      <div class="col-sm-8">
+      
+        <div class="jumbotron">
+          <h1>Control Lighting</h1>
+
+           <form name="on" action="/log/lightOn" method="GET">
+           <input id="status" type="hidden" name="status" value="1">
+            <input id="dateOn" type="hidden" name="datetime" value=""><br>
+           <button type="submit">Turn Lights On</button>
+           </form>
+
+           <form name="off" action="/log/lightOff" method="GET">
+           <input id="status" type="hidden" name="status" value="0">
+            <input id="dateOff" type="hidden" name="datetime" value=""><br>
+           <button type="submit">Turn Lights Off</button>
+           </form>
+        </div>
+        
+      </div>
+      <div class="col-sm-4">
+        
+        <div class="well">
+          <h3> Sunrise & Sunset</h3>
+          <form name="time" id="time">
+            <input type="button" value="Find Times">
+          </form>
+          <br/>
+          <p id="timeResp"></p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <% include /partials/footer %>
+  </footer>
+  
+</body>
+</html>
