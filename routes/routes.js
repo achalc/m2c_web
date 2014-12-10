@@ -58,7 +58,6 @@ exports.mongo = function(req, res){
 		                              req.query,
 		                              function(model) {
               											res.render('mongo',{title: 'Log Found', obj: model});
-              											res.json(obj);
 		                                }
 		                              );
 									 	break;
