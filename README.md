@@ -1,3 +1,13 @@
-The OpenShift `nodejs` cartridge documentation can be found at:
+# M2C Final Project (Openshift)
 
-http://openshift.github.io/documentation/oo_cartridge_guide.html#nodejs
+This part of the project runs on openshift and allows users to interact with the tessel from anywhere.
+
+
+
+License
+----
+
+MIT
+
+
+
