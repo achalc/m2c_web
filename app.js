@@ -1,6 +1,5 @@
 var express = require('express');
 var dbRoutes = require('./routes/routes.js'); 
-// var foundation = require('foundation');
 var morgan = require('morgan');
 var app = express();
 
@@ -25,20 +24,6 @@ app.use(express.static(__dirname + '/public'));
   
 // Catch any routes not already handed with an error message
 app.use(dbRoutes.errorMessage);
-
-//require the Twilio module and create a REST client 
-
-
- 
-// client.messages.create({ 
-// 	to: "4124910128", 
-// 	from: "+14123019165", 
-// 	body: "Testing 123",   
-// }, function(err, message) { 
-// 	console.log(message.sid); 
-// });
-
-
 
 /*
  * OpenShift will provide environment variables indicating the IP 
